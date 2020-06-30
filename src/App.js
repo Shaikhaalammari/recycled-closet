@@ -2,24 +2,35 @@ import React from "react";
 //components
 import ProdList from "./components/ProdList";
 
+import { ThemeProvider } from "styled-components";
+
 // style
-import styles from "./styles";
+import { Title, ListWrapper, Description, ShopImg } from "./styles";
+import GlobalStyle from "./styles";
 
 function App() {
-  return (
-    <div>
-      <div>
-        <h1 style={styles.text}>Recycled Closet</h1>
+  const theme = {
+    backgroundcolor: "red",
+    maincolor: "pink",
+    pricecolor: "green",
+  };
 
-        <img
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <div>
+        <Title>Recycled Closet</Title>
+        <ShopImg
           src="https://www.iconsdb.com/icons/preview/barbie-pink/recycling-xxl.png"
           alt="logo of the website"
-          style={styles.shopImage}
         />
-        <h4 style={styles.text}>More Taste, Less Waste - MiMi</h4>
+
+        <Description>More Taste, Less Waste - Mimi</Description>
       </div>
-      <ProdList />
-    </div>
+      <ListWrapper>
+        <ProdList />
+      </ListWrapper>
+    </ThemeProvider>
   );
 }
 

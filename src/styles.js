@@ -1,29 +1,52 @@
-const styles = {
-  text: {
-    textAlign: "center",
-  },
-  shopImage: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "150px",
-    height: "150px",
-  },
+import styled, { createGlobalStyle } from "styled-components";
 
-  productImage: {
-    width: "200px",
-    height: "200px",
-  },
+const GlobalStyle = createGlobalStyle`
+body{
+  background-color: ${(props) => props.theme.backgroundcolor};
+   text-align: center;
+  
+  }
 
-  list: {
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-  },
+`;
 
-  productSpace: {
-    margin: "20px",
-  },
-};
+const Title = styled.h1`
+  text-align: center;
+  color: #a2de96;
+`;
 
-export default styles;
+const Description = styled.h4`
+  text-align: center;
+  color: #438a5e;
+`;
+
+const ListWrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const ProductWrapper = styled.div`
+  margin: 20px;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  p {
+    color: blue;
+    &.priceColor {
+      color: yellow;
+    }
+  }
+`;
+
+const ShopImg = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 150px;
+`;
+
+export { Title, ListWrapper, ProductWrapper, Description, ShopImg };
+
+export default GlobalStyle;
