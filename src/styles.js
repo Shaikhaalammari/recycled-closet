@@ -32,9 +32,9 @@ const ProductWrapper = styled.div`
     height: 200px;
   }
   p {
-    color: blue;
+    color: #10375c;
     &.priceColor {
-      color: yellow;
+      color: #654062;
     }
   }
 `;

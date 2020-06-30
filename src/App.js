@@ -10,7 +10,7 @@ import GlobalStyle from "./styles";
 
 function App() {
   const theme = {
-    backgroundcolor: "red",
+    backgroundcolor: "#ffe9c5",
     maincolor: "pink",
     pricecolor: "green",
   };
