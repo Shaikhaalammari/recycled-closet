@@ -6,7 +6,8 @@ const styles = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "50%",
+    width: "150px",
+    height: "150px",
   },
 
   productImage: {
