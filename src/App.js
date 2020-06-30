@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+//data
+import products from "./products";
+// style
+import styles from "./styles";
 
 function App() {
+  const productsList = products.map((product) => (
+    <div style={styles.product} key={product.id}>
+      <img src={product.image} alt={product.name} style={styles.productImage} />
+      <p style={styles.text}> {product.name}</p>
+      <p style={styles.text}>{product.price} KD </p>
+    </div>
+  ));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+        <h1 style={styles.text}>Recycled Closet</h1>
+        <h4 style={styles.text}>More Taste, Less Waste - MiMi</h4>
+        <img
+          src="https://www.iconsdb.com/icons/preview/barbie-pink/recycling-xxl.png"
+          alt="logo of the website"
+          style={styles.shopImage}
+          //this is not working
+        />
+      </div>
+
+      <div style={styles.list}>{productsList}</div>
     </div>
   );
 }
