@@ -2,13 +2,32 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body{
-  background-color: ${(props) => props.theme.backgroundcolor};
+  background-color: ${(props) => props.theme.backgroundColor};
    text-align: center;
   
   }
 
 `;
+const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.backgroundColor};
+`;
 
+//const DeleteButtonStyled = styled.button`
+// font-size: 1em;
+//margin: 1.25em;
+//padding: 0.25em 1em;
+// border-radius: 3px;
+//////////////color: red;
+///`;
+
+const DeleteButtonStyled = styled.p`
+  color: ${(props) => props.theme.red};
+`;
 const Title = styled.h1`
   text-align: center;
   color: #a2de96;
@@ -47,6 +66,14 @@ const ShopImg = styled.img`
   height: 150px;
 `;
 
-export { Title, ListWrapper, ProductWrapper, Description, ShopImg };
+export {
+  Title,
+  ListWrapper,
+  ThemeButton,
+  ProductWrapper,
+  Description,
+  ShopImg,
+  DeleteButtonStyled,
+};
 
 export default GlobalStyle;
