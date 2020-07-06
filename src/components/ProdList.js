@@ -1,22 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 // component
 import ProdItem from "./ProdItem";
 //data
-import products from "../products";
+
 //style
-const ProdList = () => {
+const ProdList = (props) => {
   // prouct here i can name // it whatever you want but same name is the proper coding
 
-  const [_products, setproducts] = useState(products);
-  const deleteProduct = (productId) => {
-    const updatedproducts = _products.filter(
-      (product) => product.id !== +productId
-    );
-    setproducts(updatedproducts);
-  }; // it whatever you want but same name is the proper coding
-  const prodList = _products.map((product) => (
+  // it whatever you want but same name is the proper coding
+  const prodList = props.products.map((product) => (
     <ProdItem
-      deleteProduct={deleteProduct}
+      deleteProduct={props.deleteProduct}
+      selectedItem={props.selectedItem}
       product={product}
       key={product.id}
     />

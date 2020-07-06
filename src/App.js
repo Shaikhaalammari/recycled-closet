@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //components
 import ProdList from "./components/ProdList";
+import ProdDetail from "./components/ProdDetail";
 
 import { ThemeProvider } from "styled-components";
 
@@ -12,6 +13,9 @@ import {
   Description,
   ShopImg,
 } from "./styles";
+
+//products
+import products from "./products";
 
 import GlobalStyle from "./styles";
 
@@ -36,6 +40,32 @@ function App() {
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
+  const [product, umProduct] = useState(null); //null y3ne false
+  const [_products, setproducts] = useState(products);
+  const deleteProduct = (productId) => {
+    const updatedproducts = _products.filter(
+      (product) => product.id !== +productId
+    );
+    setproducts(updatedproducts);
+    umProduct(null);
+  };
+
+  const setView = () =>
+    product ? (
+      <ProdDetail product={product} deleteProduct={deleteProduct} />
+    ) : (
+      <ProdList
+        products={_products}
+        deleteProduct={deleteProduct}
+        selectedItem={selectItem}
+      />
+    );
+  const selectItem = (productId) => {
+    const selectedItem = products.find((product) => product.id === productId);
+    umProduct(selectedItem);
+    //y3ne if visible is true change it to false oo el3ks
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
@@ -51,9 +81,8 @@ function App() {
 
         <Description>More Taste, Less Waste - Mimi</Description>
       </div>
-      <ListWrapper>
-        <ProdList />
-      </ListWrapper>
+      {setView()}
+      <ListWrapper></ListWrapper>
     </ThemeProvider>
   );
 }
