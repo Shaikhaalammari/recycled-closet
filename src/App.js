@@ -4,21 +4,18 @@ import ProdList from "./components/ProdList";
 import ProdDetail from "./components/ProdDetail";
 
 import { ThemeProvider } from "styled-components";
+import Home from "./components/Home";
 
 // style
-import {
-  Title,
-  ListWrapper,
-  ThemeButton,
-  Description,
-  ShopImg,
-} from "./styles";
+import { ListWrapper, ThemeButton } from "./styles";
 
 //products
 import products from "./products";
 
 import GlobalStyle from "./styles";
 import SearchBar from "./components/SaerchBar";
+import { Route, Switch } from "react-router";
+import { Link, useHistory } from "react-router-dom";
 
 const theme = {
   light: {
@@ -41,30 +38,16 @@ function App() {
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
-  const [product, umProduct] = useState(null); //null y3ne false
   const [_products, setproducts] = useState(products);
   const deleteProduct = (productId) => {
     const updatedproducts = _products.filter(
       (product) => product.id !== +productId
     );
     setproducts(updatedproducts);
-    umProduct(null);
   };
 
-  const setView = () =>
-    product ? (
-      <ProdDetail product={product} deleteProduct={deleteProduct} />
-    ) : (
-      <ProdList
-        products={_products}
-        deleteProduct={deleteProduct}
-        selectedItem={selectItem}
-      />
-    );
   const selectItem = (productId) => {
     const selectedItem = products.find((product) => product.id === productId);
-    umProduct(selectedItem);
-    //y3ne if visible is true change it to false oo el3ks
   };
 
   return (
@@ -73,16 +56,21 @@ function App() {
       <ThemeButton onClick={toggleTheme}>
         {theme === "light" ? "Dark" : "Light"} Mode
       </ThemeButton>
-      <div>
-        <Title>Recycled Closet</Title>
-        <ShopImg
-          src="https://www.iconsdb.com/icons/preview/barbie-pink/recycling-xxl.png"
-          alt="logo of the website"
-        />
-
-        <Description>More Taste, Less Waste - Mimi</Description>
-      </div>
-      {setView()}
+      <Link to="/products" style={{ margin: 10, float: "center" }}>
+        {" "}
+        Products
+      </Link>
+      <Switch>
+        <Route path="/products/:productId">
+          <ProdDetail products={_products} deleteProduct={deleteProduct} />
+        </Route>
+        <Route path="/products">
+          <ProdList products={_products} deleteProduct={deleteProduct} />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
       <ListWrapper></ListWrapper>
     </ThemeProvider>
   );

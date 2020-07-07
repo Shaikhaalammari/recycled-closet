@@ -6,12 +6,11 @@ import SearchBar from "./SaerchBar";
 const ProdList = (props) => {
   const [query, setQuery] = useState("");
   const filtteredProducts = props.products.filter((product) =>
-    product.name.includes(query)
+    product.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
   );
   const prodList = filtteredProducts.map((product) => (
     <ProdItem
       deleteProduct={props.deleteProduct}
-      selectedItem={props.selectedItem}
       product={product}
       key={product.id}
     />

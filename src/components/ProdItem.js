@@ -4,16 +4,15 @@ import { ProductWrapper, DeleteButtonStyled } from "../styles";
 // product
 import product from "../products";
 import DeleteButton from "./Buttons/DeleteButton";
-
+import { Link } from "react-router-dom";
 const ProdItem = (props) => {
   const product = props.product;
+
   return (
     <ProductWrapper>
-      <img
-        src={product.image}
-        alt={product.name}
-        onClick={() => props.selectedItem(product.id)}
-      />
+      <Link to={`/products/${product.id}`}>
+        <img src={product.image} alt={product.name} />
+      </Link>
       <p> {product.name}</p>
       <p className="priceColor">{product.price} KD </p>
       <DeleteButton
