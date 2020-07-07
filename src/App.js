@@ -18,6 +18,7 @@ import {
 import products from "./products";
 
 import GlobalStyle from "./styles";
+import SearchBar from "./components/SaerchBar";
 
 const theme = {
   light: {

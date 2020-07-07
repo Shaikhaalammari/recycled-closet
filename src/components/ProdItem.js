@@ -3,22 +3,23 @@ import React from "react";
 import { ProductWrapper, DeleteButtonStyled } from "../styles";
 // product
 import product from "../products";
+import DeleteButton from "./Buttons/DeleteButton";
 
 const ProdItem = (props) => {
-  const handleDelete = () => {
-    props.deleteProduct(props.product.id);
-  };
-
+  const product = props.product;
   return (
     <ProductWrapper>
       <img
-        src={props.product.image}
-        alt={props.product.name}
-        onClick={() => props.selectedItem(props.product.id)}
+        src={product.image}
+        alt={product.name}
+        onClick={() => props.selectedItem(product.id)}
       />
-      <p> {props.product.name}</p>
-      <p className="priceColor">{props.product.price} KD </p>
-      <DeleteButtonStyled onClick={handleDelete}>Delete </DeleteButtonStyled>
+      <p> {product.name}</p>
+      <p className="priceColor">{product.price} KD </p>
+      <DeleteButton
+        ProductId={product.id}
+        deleteProduct={props.deleteProduct}
+      />
     </ProductWrapper>
   );
 };

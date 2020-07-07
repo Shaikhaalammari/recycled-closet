@@ -1,19 +1,21 @@
 import React from "react";
 import { DetailWrapper, DeleteButtonStyled } from "../styles";
+import DeleteButton from "./Buttons/DeleteButton";
 
 const ProdDetail = (props) => {
   const product = props.product;
-  const handleDelete = () => {
-    props.deleteProduct(props.product.id);
-  };
 
   return (
     <DetailWrapper>
+      <p onClick={props.selectItem}>Back to Products</p>
       <h1>{product.name}</h1>
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price}</p>
-      <DeleteButtonStyled onClick={handleDelete}>Delete </DeleteButtonStyled>
+      <DeleteButton
+        ProductId={product.id}
+        deleteProduct={props.deleteProduct}
+      />
     </DetailWrapper>
   );
 };

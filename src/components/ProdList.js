@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 // component
 import ProdItem from "./ProdItem";
-//data
+import SearchBar from "./SaerchBar";
 
-//style
 const ProdList = (props) => {
-  // prouct here i can name // it whatever you want but same name is the proper coding
-
-  // it whatever you want but same name is the proper coding
-  const prodList = props.products.map((product) => (
+  const [query, setQuery] = useState("");
+  const filtteredProducts = props.products.filter((product) =>
+    product.name.includes(query)
+  );
+  const prodList = filtteredProducts.map((product) => (
     <ProdItem
       deleteProduct={props.deleteProduct}
       selectedItem={props.selectedItem}
@@ -16,6 +16,12 @@ const ProdList = (props) => {
       key={product.id}
     />
   ));
-  return <div> {prodList}</div>;
+
+  return (
+    <>
+      <SearchBar setQuery={setQuery} />
+      {prodList}
+    </>
+  );
 };
 export default ProdList;

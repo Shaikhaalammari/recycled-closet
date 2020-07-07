@@ -83,6 +83,13 @@ const DetailWrapper = styled.div`
   }
 `;
 
+const Search = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+
 export {
   Title,
   ListWrapper,
@@ -92,6 +99,7 @@ export {
   ShopImg,
   DeleteButtonStyled,
   DetailWrapper,
+  Search,
 };
 
 export default GlobalStyle;
