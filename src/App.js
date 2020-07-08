@@ -1,21 +1,17 @@
 import React, { useState } from "react";
+
 //components
 import ProdList from "./components/ProdList";
 import ProdDetail from "./components/ProdDetail";
-
 import { ThemeProvider } from "styled-components";
 import Home from "./components/Home";
-
-// style
-import { ListWrapper, ThemeButton } from "./styles";
+import NavBar from "./components/NavBar";
 
 //products
 import products from "./products";
 
 import GlobalStyle from "./styles";
-import SearchBar from "./components/SaerchBar";
 import { Route, Switch } from "react-router";
-import { Link, useHistory } from "react-router-dom";
 
 const theme = {
   light: {
@@ -46,20 +42,10 @@ function App() {
     setproducts(updatedproducts);
   };
 
-  const selectItem = (productId) => {
-    const selectedItem = products.find((product) => product.id === productId);
-  };
-
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>
-        {theme === "light" ? "Dark" : "Light"} Mode
-      </ThemeButton>
-      <Link to="/products" style={{ margin: 10, float: "center" }}>
-        {" "}
-        Products
-      </Link>
+      <NavBar toggleTheme={toggleTheme} theme={theme} />
       <Switch>
         <Route path="/products/:productId">
           <ProdDetail products={_products} deleteProduct={deleteProduct} />
@@ -71,7 +57,6 @@ function App() {
           <Home />
         </Route>
       </Switch>
-      <ListWrapper></ListWrapper>
     </ThemeProvider>
   );
 }

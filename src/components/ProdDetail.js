@@ -2,13 +2,14 @@ import React from "react";
 import { DetailWrapper, DeleteButtonStyled } from "../styles";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link, useParams } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const ProdDetail = (props) => {
   //const productId = useParams().productId;
   const { productId } = useParams();
 
   const product = props.products.find((product) => product.id === +productId);
-
+  if (!product) return <Redirect to="/products" />;
   return (
     <DetailWrapper>
       <Link to="/products">
