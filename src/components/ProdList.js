@@ -2,15 +2,17 @@ import React, { useState } from "react";
 // component
 import ProdItem from "./ProdItem";
 import SearchBar from "./SaerchBar";
+// import { GrAdd } from "react-icons/gr";
+import AddButton from "./Buttons/AddButton";
 
-const ProdList = (props) => {
+const ProdList = ({ deleteProduct, createProduct, products }) => {
   const [query, setQuery] = useState("");
-  const filtteredProducts = props.products.filter((product) =>
-    product.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+  const filtteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(query.toLowerCase())
   );
   const prodList = filtteredProducts.map((product) => (
     <ProdItem
-      deleteProduct={props.deleteProduct}
+      deleteProduct={deleteProduct}
       product={product}
       key={product.id}
     />
@@ -20,6 +22,7 @@ const ProdList = (props) => {
     <>
       <SearchBar setQuery={setQuery} />
       {prodList}
+      <AddButton createProduct={createProduct} />
     </>
   );
 };

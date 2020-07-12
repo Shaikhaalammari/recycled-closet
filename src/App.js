@@ -42,6 +42,10 @@ function App() {
     setproducts(updatedproducts);
   };
 
+  const createProduct = (newProduct) => {
+    setproducts([..._products, newProduct]);
+  };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
@@ -51,7 +55,11 @@ function App() {
           <ProdDetail products={_products} deleteProduct={deleteProduct} />
         </Route>
         <Route path="/products">
-          <ProdList products={_products} deleteProduct={deleteProduct} />
+          <ProdList
+            products={_products}
+            deleteProduct={deleteProduct}
+            createProduct={createProduct}
+          />
         </Route>
         <Route path="/">
           <Home />

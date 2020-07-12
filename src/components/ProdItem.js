@@ -1,6 +1,8 @@
 import React from "react";
 //style
 import { ProductWrapper, DeleteButtonStyled } from "../styles";
+import { GrAdd } from "react-icons/gr";
+
 // product
 import product from "../products";
 import DeleteButton from "./Buttons/DeleteButton";
