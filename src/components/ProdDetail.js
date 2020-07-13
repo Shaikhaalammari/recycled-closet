@@ -1,12 +1,12 @@
 import React from "react";
 //store
 import prodStore from "../stores/prodStore";
-import { DetailWrapper, DeleteButtonStyled } from "../styles";
+import { DetailWrapper } from "../styles";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link, useParams } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
-const ProdDetail = (props) => {
+const ProdDetail = () => {
   //const productId = useParams().productId;
   const { productId } = useParams();
 
@@ -23,7 +23,7 @@ const ProdDetail = (props) => {
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>
       <p>{product.price}</p>
-      <DeleteButton ProductId={product.id} />
+      <DeleteButton productId={product.id} />
     </DetailWrapper>
   );
 };

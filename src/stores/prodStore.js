@@ -1,7 +1,5 @@
-import produtcs from "../products";
 import { decorate, observable } from "mobx";
 import products from "../products";
-import ProdItem from "../components/ProdItem";
 
 class ProdStore {
   products = products;

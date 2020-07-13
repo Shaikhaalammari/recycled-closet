@@ -8,17 +8,13 @@ import SearchBar from "./SaerchBar";
 // import { GrAdd } from "react-icons/gr";
 import AddButton from "./Buttons/AddButton";
 
-const ProdList = ({ deleteProduct, createProduct, products }) => {
+const ProdList = () => {
   const [query, setQuery] = useState("");
-  const filtteredProducts = prodStore.products.filter((product) =>
+  const filteredProducts = prodStore.products.filter((product) =>
     product.name.toLowerCase().includes(query.toLowerCase())
   );
-  const prodList = filtteredProducts.map((product) => (
-    <ProdItem
-      deleteProduct={deleteProduct}
-      product={product}
-      key={product.id}
-    />
+  const prodList = filteredProducts.map((product) => (
+    <ProdItem product={product} key={product.id} />
   ));
 
   return (

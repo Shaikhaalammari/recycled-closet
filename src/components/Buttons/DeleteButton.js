@@ -4,11 +4,11 @@ import prodStore from "../../stores/prodStore";
 import { DeleteButtonStyled } from "../../styles";
 import { useHistory } from "react-router-dom";
 
-const DeleteButton = (props) => {
+const DeleteButton = ({ productId }) => {
   const history = useHistory();
 
   const handleDelete = () => {
-    prodStore.deleteProduct(props.productId);
+    prodStore.deleteProduct(productId);
     history.push("/products");
   };
   return (

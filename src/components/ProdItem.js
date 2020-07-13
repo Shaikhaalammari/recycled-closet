@@ -1,16 +1,10 @@
 import React from "react";
 //style
-import { ProductWrapper, DeleteButtonStyled } from "../styles";
-import { GrAdd } from "react-icons/gr";
+import { ProductWrapper } from "../styles";
 
-// product
-import product from "../products";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link } from "react-router-dom";
-import prodStore from "../stores/prodStore";
-const ProdItem = (props) => {
-  const product = props.product;
-
+const ProdItem = ({ product }) => {
   return (
     <ProductWrapper>
       <Link to={`/products/${product.id}`}>
@@ -18,10 +12,7 @@ const ProdItem = (props) => {
       </Link>
       <p> {product.name}</p>
       <p className="priceColor">{product.price} KD </p>
-      <DeleteButton
-        productId={product.id}
-        deleteProduct={prodStore.deleteProduct}
-      />
+      <DeleteButton productId={product.id} />
     </ProductWrapper>
   );
 };

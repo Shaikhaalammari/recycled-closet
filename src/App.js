@@ -7,9 +7,6 @@ import { ThemeProvider } from "styled-components";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 
-//products
-import products from "./products";
-
 import GlobalStyle from "./styles";
 import { Route, Switch } from "react-router";
 
@@ -33,14 +30,6 @@ function App() {
 
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
-
-  const deleteProduct = (productId) => {
-    const updatedproducts = _products.filter(
-      (product) => product.id !== +productId
-    );
-    setproducts(updatedproducts);
-  };
-  const [_products, setproducts] = useState(products);
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
