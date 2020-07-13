@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
+//stores
+import prodStore from "../../stores/prodStore";
 //styles
 import { customStyles, CreateButtonStyled } from "../../styles";
 
-const ProdModal = ({ isOpen, closeModal, createProduct }) => {
+const ProdModal = ({ isOpen, closeModal }) => {
   const [product, setProduct] = useState({
     name: "",
     price: 0,
@@ -15,7 +17,7 @@ const ProdModal = ({ isOpen, closeModal, createProduct }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    createProduct(product);
+    prodStore.createProduct(product);
     closeModal();
   };
   // so when we even press enter it will submit

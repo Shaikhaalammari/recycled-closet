@@ -7,6 +7,7 @@ import { GrAdd } from "react-icons/gr";
 import product from "../products";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link } from "react-router-dom";
+import prodStore from "../stores/prodStore";
 const ProdItem = (props) => {
   const product = props.product;
 
@@ -18,8 +19,8 @@ const ProdItem = (props) => {
       <p> {product.name}</p>
       <p className="priceColor">{product.price} KD </p>
       <DeleteButton
-        ProductId={product.id}
-        deleteProduct={props.deleteProduct}
+        productId={product.id}
+        deleteProduct={prodStore.deleteProduct}
       />
     </ProductWrapper>
   );

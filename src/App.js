@@ -34,17 +34,13 @@ function App() {
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
-  const [_products, setproducts] = useState(products);
   const deleteProduct = (productId) => {
     const updatedproducts = _products.filter(
       (product) => product.id !== +productId
     );
     setproducts(updatedproducts);
   };
-
-  const createProduct = (newProduct) => {
-    setproducts([..._products, newProduct]);
-  };
+  const [_products, setproducts] = useState(products);
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
@@ -52,14 +48,10 @@ function App() {
       <NavBar toggleTheme={toggleTheme} theme={theme} />
       <Switch>
         <Route path="/products/:productId">
-          <ProdDetail products={_products} deleteProduct={deleteProduct} />
+          <ProdDetail />
         </Route>
         <Route path="/products">
-          <ProdList
-            products={_products}
-            deleteProduct={deleteProduct}
-            createProduct={createProduct}
-          />
+          <ProdList />
         </Route>
         <Route path="/">
           <Home />
