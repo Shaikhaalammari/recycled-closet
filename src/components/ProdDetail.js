@@ -5,8 +5,10 @@ import { DetailWrapper } from "../styles";
 import DeleteButton from "./Buttons/DeleteButton";
 import { Link, useParams } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import UpdateButton from "./Buttons/UpdateButton";
+import ProdModal from "./modals/ProdModal";
 
-const ProdDetail = () => {
+const ProdDetail = ({ openModal, isOpen, closeModal }) => {
   //const productId = useParams().productId;
   const { productId } = useParams();
 
@@ -24,6 +26,8 @@ const ProdDetail = () => {
       <p>{product.description}</p>
       <p>{product.price}</p>
       <DeleteButton productId={product.id} />
+      <ProdModal isOpen={isOpen} closeModal={closeModal} oldProduct={product} />
+      <UpdateButton product={product} />
     </DetailWrapper>
   );
 };

@@ -13,6 +13,13 @@ class ProdStore {
       (product) => product.id !== +productId
     );
   };
+  updateProduct = (updatedProduct) => {
+    const product = this.products.find(
+      (product) => product.id === updatedProduct.id
+    );
+
+    for (const key in product) product[key] = updatedProduct[key];
+  };
 }
 
 decorate(ProdStore, {

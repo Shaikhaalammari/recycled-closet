@@ -16,12 +16,14 @@ const theme = {
     backgroundColor: "#fefafb", // background color fat7
     priceColor: "#654062",
     red: "#fa1616",
+    lightPink: "#df5e88",
   },
   dark: {
     mainColor: "#fefafb", // font color
     backgroundColor: "#242424", //background color dark
     priceColor: " #654062",
     red: "#fa1616",
+    lightPink: "#df5e88",
   },
 };
 

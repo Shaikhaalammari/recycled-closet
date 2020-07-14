@@ -17,14 +17,6 @@ const ThemeButton = styled.button`
   color: ${(props) => props.theme.backgroundColor};
 `;
 
-//const DeleteButtonStyled = styled.button`
-// font-size: 1em;
-//margin: 1.25em;
-//padding: 0.25em 1em;
-// border-radius: 3px;
-//////////////color: red;
-///`;
-
 const DeleteButtonStyled = styled.p`
   color: ${(props) => props.theme.red};
 `;
@@ -129,6 +121,10 @@ const CreateButtonStyled = styled.button`
     background-color: ${(props) => props.theme.backgroundColor};
   }
 `;
+
+const UpdateButtonStyled = styled.p`
+  color: ${(props) => props.theme.lightPink};
+`;
 export {
   Title,
   ListWrapper,
@@ -144,6 +140,7 @@ export {
   NavItem,
   customStyles,
   CreateButtonStyled,
+  UpdateButtonStyled,
 };
 
 export default GlobalStyle;
