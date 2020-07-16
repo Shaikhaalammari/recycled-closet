@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { NavStyled, NavItem, ThemeButton, Logo } from "../styles";
-import logo from "../weblogo.png";
+import { NavStyled, NavItem, ThemeButton, Logo } from "./styles";
+import logo from "../../weblogo.png";
 const NavBar = (props) => {
   return (
     <NavStyled className="navbar navbar-expand-lg">
@@ -20,7 +20,7 @@ const NavBar = (props) => {
           </NavItem>
 
           <ThemeButton className="nav-item " onClick={props.toggleTheme}>
-            {props.theme === "light" ? "Dark" : "Light"} Mode
+            {props.currentTheme === "light" ? "Dark" : "Light"} Mode
           </ThemeButton>
         </ul>
       </div>

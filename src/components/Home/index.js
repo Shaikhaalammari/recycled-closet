@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Description, ShopImg } from "../styles";
+import { Title, Description, ShopImg } from "./styles";
 
 const Home = () => {
   return (

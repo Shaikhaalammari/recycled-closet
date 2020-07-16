@@ -9,53 +9,11 @@ body{
   }
 
 `;
-const ThemeButton = styled.button`
-  font-size: 1em;
-  padding: 0.25em 1em;
-  border-radius: 3px;
-  background-color: ${(props) => props.theme.mainColor};
-  color: ${(props) => props.theme.backgroundColor};
-`;
-
-const DeleteButtonStyled = styled.p`
-  color: ${(props) => props.theme.red};
-`;
-const Title = styled.h1`
-  text-align: center;
-  color: #a2de96;
-`;
-
-const Description = styled.h4`
-  text-align: center;
-  color: #438a5e;
-`;
 
 const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-`;
-
-const ProductWrapper = styled.div`
-  margin: 20px;
-  img {
-    width: 200px;
-    height: 200px;
-  }
-  p {
-    color: #10375c;
-    &.priceColor {
-      color: #654062;
-    }
-  }
-`;
-
-const ShopImg = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 150px;
-  height: 150px;
 `;
 
 const DetailWrapper = styled.div`
@@ -72,32 +30,6 @@ const DetailWrapper = styled.div`
   p {
     vertical-align: middle;
     color: #438a5e;
-  }
-`;
-
-const Search = styled.input`
-  padding: 0.5rem;
-  margin: 1rem auto;
-  display: block;
-  width: 40%;
-`;
-
-const NavStyled = styled.nav``;
-
-const Logo = styled(Link)`
-padding: 0.75em;
-
-img{
-  width 5rem;
-}
-`;
-
-const NavItem = styled(NavLink)`
-  padding: 0.25em 1em;
-  color: ${(props) => props.theme.mainColor};
-
-  &.active {
-    color: #e79cc2;
   }
 `;
 
@@ -122,25 +54,6 @@ const CreateButtonStyled = styled.button`
   }
 `;
 
-const UpdateButtonStyled = styled.p`
-  color: ${(props) => props.theme.lightPink};
-`;
-export {
-  Title,
-  ListWrapper,
-  ThemeButton,
-  ProductWrapper,
-  Description,
-  ShopImg,
-  DeleteButtonStyled,
-  DetailWrapper,
-  Search,
-  NavStyled,
-  Logo,
-  NavItem,
-  customStyles,
-  CreateButtonStyled,
-  UpdateButtonStyled,
-};
+export { ListWrapper, DetailWrapper, customStyles, CreateButtonStyled };
 
 export default GlobalStyle;

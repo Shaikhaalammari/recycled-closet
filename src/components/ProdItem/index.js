@@ -2,11 +2,11 @@ import React from "react";
 //observer
 import { observer } from "mobx-react";
 //style
-import { ProductWrapper } from "../styles";
+import { ProductWrapper } from "./styles";
 
-import DeleteButton from "./Buttons/DeleteButton";
+import DeleteButton from "../Buttons/DeleteButton";
 import { Link } from "react-router-dom";
-import UpdateButton from "./Buttons/UpdateButton";
+import UpdateButton from "../Buttons/UpdateButton";
 const ProdItem = ({ product }) => {
   return (
     <ProductWrapper>

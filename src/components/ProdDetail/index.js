@@ -1,12 +1,12 @@
 import React from "react";
 //store
-import prodStore from "../stores/prodStore";
-import { DetailWrapper } from "../styles";
-import DeleteButton from "./Buttons/DeleteButton";
+import prodStore from "../../stores/prodStore";
+import { DetailWrapper } from "./styles";
+import DeleteButton from "../Buttons/DeleteButton";
 import { Link, useParams } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import UpdateButton from "./Buttons/UpdateButton";
-import ProdModal from "./modals/ProdModal";
+import UpdateButton from "../Buttons/UpdateButton";
+import ProdModal from "../modals/ProdModal";
 
 const ProdDetail = ({ openModal, isOpen, closeModal }) => {
   //const productId = useParams().productId;

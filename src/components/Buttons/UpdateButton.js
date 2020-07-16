@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //styling
-import { UpdateButtonStyled } from "../../styles";
+import { UpdateButtonStyled } from "./styles";
 //components-modal
 import ProdModal from "../modals/ProdModal";
 
