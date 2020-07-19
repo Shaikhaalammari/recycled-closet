@@ -36,6 +36,7 @@ function App() {
     setCurrentTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
