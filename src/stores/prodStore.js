@@ -17,11 +17,17 @@ class ProdStore {
     newProduct.id = this.products[this.products.length - 1].id + 1;
     this.products.push(newProduct);
   };
-  deleteProduct = (productId) => {
-    this.products = this.products.filter(
-      (product) => product.id !== +productId
-    );
+  deleteProduct = async (productId) => {
+    try {
+      await axios.delete(`http://localhost:8000/products/${productId}`);
+      this.products = this.products.filter(
+        (product) => product.id !== +productId
+      );
+    } catch (error) {
+      console.log("ProductStore -> deleteProduct -> error", error);
+    }
   };
+
   updateProduct = (updatedProduct) => {
     const product = this.products.find(
       (product) => product.id === updatedProduct.id
