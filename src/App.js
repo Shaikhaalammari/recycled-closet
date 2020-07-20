@@ -42,7 +42,7 @@ function App() {
       <GlobalStyle />
       <NavBar toggleTheme={toggleTheme} currentTheme={currentTheme} />
       <Switch>
-        <Route path="/products/:productId">
+        <Route path="/products/:productSlug">
           <ProdDetail />
         </Route>
         <Route path="/products">

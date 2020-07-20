@@ -13,10 +13,18 @@ class ProdStore {
       console.error("ProdStore ->fetchProduct ->error", error);
     }
   };
-  createProduct = (newProduct) => {
-    newProduct.id = this.products[this.products.length - 1].id + 1;
-    this.products.push(newProduct);
+  createProduct = async (newProduct) => {
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/products",
+        newProduct
+      );
+      this.products.push(res.data);
+    } catch (error) {
+      console.log("ProdStore-> createProduct -> error", error);
+    }
   };
+
   deleteProduct = async (productId) => {
     try {
       await axios.delete(`http://localhost:8000/products/${productId}`);

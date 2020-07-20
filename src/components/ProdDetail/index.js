@@ -10,10 +10,10 @@ import ProdModal from "../modals/ProdModal";
 
 const ProdDetail = ({ openModal, isOpen, closeModal }) => {
   //const productId = useParams().productId;
-  const { productId } = useParams();
+  const { productSlug } = useParams();
 
   const product = prodStore.products.find(
-    (product) => product.id === +productId
+    (product) => product.slug === productSlug
   );
   if (!product) return <Redirect to="/products" />;
   return (

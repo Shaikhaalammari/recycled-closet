@@ -10,7 +10,7 @@ import UpdateButton from "../Buttons/UpdateButton";
 const ProdItem = ({ product }) => {
   return (
     <ProductWrapper>
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/${product.slug}`}>
         <img src={product.image} alt={product.name} />
       </Link>
       <p> {product.name}</p>
