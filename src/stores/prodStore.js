@@ -36,12 +36,20 @@ class ProdStore {
     }
   };
 
-  updateProduct = (updatedProduct) => {
-    const product = this.products.find(
-      (product) => product.id === updatedProduct.id
-    );
+  updateProduct = async (updatedProduct) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/products/${updatedProduct.id}`,
+        updatedProduct
+      );
 
-    for (const key in product) product[key] = updatedProduct[key];
+      const product = this.products.find(
+        (product) => product.id === updatedProduct.id
+      );
+      for (const key in product) product[key] = updatedProduct[key];
+    } catch (error) {
+      console.log("ProductStore -> updateProduct -> error", error);
+    }
   };
 }
 

@@ -6,12 +6,14 @@ import prodStore from "../../stores/prodStore";
 import { customStyles, CreateButtonStyled } from "../../styles";
 
 const ProdModal = ({ isOpen, closeModal, oldProduct }) => {
-  const [product, setProduct] = useState({
-    name: oldProduct ? oldProduct.name : "",
-    price: oldProduct ? oldProduct.price : 0,
-    description: oldProduct ? oldProduct.description : "",
-    image: oldProduct ? oldProduct.image : "",
-  });
+  const [product, setProduct] = useState(
+    oldProduct ?? {
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+    }
+  );
 
   const handleChange = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
