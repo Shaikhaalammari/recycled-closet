@@ -3,6 +3,7 @@ import React from "react";
 import prodStore from "../../stores/prodStore";
 import { DeleteButtonStyled } from "./styles";
 import { useHistory } from "react-router-dom";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const DeleteButton = ({ productId }) => {
   const history = useHistory();
@@ -12,7 +13,9 @@ const DeleteButton = ({ productId }) => {
     history.push("/products");
   };
   return (
-    <DeleteButtonStyled onClick={handleDelete}>Delete </DeleteButtonStyled>
+    <DeleteButtonStyled onClick={handleDelete}>
+      <RiDeleteBin6Line />{" "}
+    </DeleteButtonStyled>
   );
 };
 

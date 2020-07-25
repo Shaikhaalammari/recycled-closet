@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { UpdateButtonStyled } from "./styles";
 //components-modal
 import ProdModal from "../modals/ProdModal";
+//button icon
+import { BsArrowRepeat } from "react-icons/bs";
 
 const UpdateButton = ({ product }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +12,8 @@ const UpdateButton = ({ product }) => {
   const openModal = () => setIsOpen(true);
   return (
     <>
-      <UpdateButtonStyled onClick={openModal}>Update</UpdateButtonStyled>
+      <BsArrowRepeat color="#438a5e" onClick={openModal} />
+
       <ProdModal isOpen={isOpen} closeModal={closeModal} oldProduct={product} />
     </>
   );

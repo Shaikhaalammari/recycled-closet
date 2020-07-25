@@ -1,10 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Link, NavLink } from "react-router-dom";
-
 const GlobalStyle = createGlobalStyle`
 body{
   background-color: ${(props) => props.theme.backgroundColor};
    text-align: center;
+   font-family: 'Recursive', sans-serif;
   
   }
 
@@ -46,7 +45,7 @@ const customStyles = {
 
 const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.backgroundColor};
-  background-color: ${(props) => props.theme.mainColor};
+  background-color: ${(props) => props.theme.update};
 
   &:hover {
     color: ${(props) => props.theme.mainColor};

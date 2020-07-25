@@ -1,8 +1,10 @@
 import styled from "styled-components";
-export const DeleteButtonStyled = styled.p`
-  color: ${(props) => props.theme.red};
-`;
+import { BsArrowRepeat } from "react-icons/bs";
 
-export const UpdateButtonStyled = styled.p`
+export const DeleteButtonStyled = styled.p`
   color: ${(props) => props.theme.lightPink};
+`;
+//workin
+export const UpdateButtonStyled = styled(BsArrowRepeat)`
+  color: ${(props) => props.theme.update};
 `;

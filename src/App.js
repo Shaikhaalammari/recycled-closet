@@ -17,6 +17,7 @@ const theme = {
     priceColor: "#654062",
     red: "#fa1616",
     lightPink: "#df5e88",
+    update: "#438a5e",
   },
   dark: {
     mainColor: "#fefafb", // font color
@@ -24,6 +25,7 @@ const theme = {
     priceColor: " #654062",
     red: "#fa1616",
     lightPink: "#df5e88",
+    update: "#438a5e",
   },
 };
 

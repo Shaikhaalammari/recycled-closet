@@ -1,12 +1,18 @@
 import styled from "styled-components";
+import GoogleFontLoader from "react-google-font-loader";
+
 export const Title = styled.h1`
   text-align: center;
   color: #a2de96;
+  font-family: Roboto Mono;
+  font-weight: 100;
 `;
 
 export const Description = styled.h4`
   text-align: center;
   color: #438a5e;
+  font-family: Roboto Mono;
+  font-weight: 100;
 `;
 
 export const ShopImg = styled.img`
