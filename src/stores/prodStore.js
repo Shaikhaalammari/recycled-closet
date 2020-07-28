@@ -15,10 +15,10 @@ class ProdStore {
   };
   createProduct = async (newProduct) => {
     try {
-      const res = await axios.post(
-        "http://localhost:8000/products",
-        newProduct
-      );
+      const fromData = new FormData();
+      formData.append("name", newProduct.name);
+      for (const key in newProduct) fromData.append(key, newProduct[key]);
+      const res = await axios.post("http://localhost:8000/products", fromData);
       this.products.push(res.data);
     } catch (error) {
       console.log("ProdStore-> createProduct -> error", error);

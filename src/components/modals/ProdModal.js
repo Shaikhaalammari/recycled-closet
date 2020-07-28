@@ -18,6 +18,10 @@ const ProdModal = ({ isOpen, closeModal, oldProduct }) => {
   const handleChange = (event) => {
     setProduct({ ...product, [event.target.name]: event.target.value });
   };
+
+  const handleImage = (event) =>
+    setProduct({ ...product, image: event.target.files[0] });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     oldProduct
@@ -71,11 +75,11 @@ const ProdModal = ({ isOpen, closeModal, oldProduct }) => {
         <div className="form-group">
           <label>Image</label>
           <input
-            type="text"
+            type="file"
             className="form-control"
             name="image"
-            value={product.image}
-            onChange={handleChange}
+            // value={product.image}
+            onChange={handleImage}
           />
         </div>
         <CreateButtonStyled className="btn float-right">
