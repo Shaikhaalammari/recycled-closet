@@ -12,8 +12,8 @@ const DeleteButton = ({ productId }) => {
 
   const handleDelete = () => {
    if(vendorId){
-     vendorStore.deleteVendor(vendorId)
-     history.push("./vendors")
+     vendorStore.deleteVendor(vendorId);
+     history.push("./vendors");
    } else {
     prodStore.deleteProduct(productId);
     history.push("/products");
