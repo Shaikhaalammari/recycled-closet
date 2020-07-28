@@ -8,6 +8,7 @@ import DeleteButton from "../Buttons/DeleteButton";
 import { Link } from "react-router-dom";
 import UpdateButton from "../Buttons/UpdateButton";
 const ProdItem = ({ product }) => {
+  console.log(product.image);
   return (
     <ProductWrapper>
       <Link to={`/products/${product.slug}`}>

@@ -3,7 +3,7 @@ import axios from "axios";
 import products from "../products";
 
 class ProdStore {
-  products = products;
+  products = [];
 
   fetchProducts = async () => {
     try {
@@ -15,10 +15,9 @@ class ProdStore {
   };
   createProduct = async (newProduct) => {
     try {
-      const fromData = new FormData();
-      formData.append("name", newProduct.name);
-      for (const key in newProduct) fromData.append(key, newProduct[key]);
-      const res = await axios.post("http://localhost:8000/products", fromData);
+      const formData = new FormData();
+      for (const key in newProduct) formData.append(key, newProduct[key]);
+      const res = await axios.post("http://localhost:8000/products", formData);
       this.products.push(res.data);
     } catch (error) {
       console.log("ProdStore-> createProduct -> error", error);
@@ -38,9 +37,12 @@ class ProdStore {
 
   updateProduct = async (updatedProduct) => {
     try {
+      const formData = new FormData();
+      for (const key in updatedProduct)
+        formData.append(key, updatedProduct[key]);
       await axios.put(
         `http://localhost:8000/products/${updatedProduct.id}`,
-        updatedProduct
+        formData
       );
 
       const product = this.products.find(
