@@ -17,7 +17,10 @@ class ProdStore {
     try {
       const formData = new FormData();
       for (const key in newProduct) formData.append(key, newProduct[key]);
-      const res = await axios.post("http://localhost:8000/products", formData);
+      const res = await axios.post(
+        "http://localhost:8000/vendors/${newProduct.vendorId}/products",
+        formData
+      );
       this.products.push(res.data);
     } catch (error) {
       console.log("ProdStore-> createProduct -> error", error);
@@ -54,9 +57,13 @@ class ProdStore {
     }
   };
 }
-
+class ProdStore {
+  products = [];
+  loading = true;
+}
 decorate(ProdStore, {
   products: observable,
+  loading: observable,
 });
 
 const prodStore = new ProdStore();

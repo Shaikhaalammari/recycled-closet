@@ -8,8 +8,11 @@ import SearchBar from "../SearchBar";
 // import { GrAdd } from "react-icons/gr";
 import AddButton from "../Buttons/AddButton";
 
-const ProdList = () => {
+const ProdList = ({ products }) => {
   const [query, setQuery] = useState("");
+  const ProdList = products
+    .filter((product) => product.name.toLowerCase().query.toLowerCase())
+    .map((prouct) => <ProdItem product={product} key={product.id} />);
   const filteredProducts = prodStore.products.filter((product) =>
     product.name.toLowerCase().includes(query.toLowerCase())
   );

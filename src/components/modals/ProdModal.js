@@ -5,9 +5,10 @@ import prodStore from "../../stores/prodStore";
 //styles
 import { customStyles, CreateButtonStyled } from "../../styles";
 
-const ProdModal = ({ isOpen, closeModal, oldProduct }) => {
+const ProdModal = ({ vendorId, isOpen, closeModal, oldProduct }) => {
   const [product, setProduct] = useState(
     oldProduct ?? {
+      vendorId: vendorId,
       name: "",
       price: 0,
       description: "",

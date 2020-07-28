@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-
 //components
-import ProdList from "./components/ProdList";
-import ProdDetail from "./components/ProdDetail";
 import { ThemeProvider } from "styled-components";
-import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-
+//styles
 import GlobalStyle from "./styles";
-import { Route, Switch } from "react-router";
+//routes
+import Routes from "./components/Routes";
+import prodStore from "./stores/prodStore";
 
 const theme = {
   light: {
@@ -43,19 +41,14 @@ function App() {
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar toggleTheme={toggleTheme} currentTheme={currentTheme} />
-      <Switch>
-        <Route path="/products/:productSlug">
-          <ProdDetail />
-        </Route>
-        <Route path="/products">
-          <ProdList />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      {vendorStore.loading || prodStore.loading ? (
+        <h1>Loadinggg</h1>
+      ) : (
+        <Routes />
+      )}
+      <Routes />
     </ThemeProvider>
   );
 }
 
-export default App;
+export default observer(App);

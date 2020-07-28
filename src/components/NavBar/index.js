@@ -10,6 +10,9 @@ const NavBar = (props) => {
           <img alt="logo" src={logo} />
         </Logo>
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+          <NavItem className="nav-item" to="/vendors">
+            Vendors
+          </NavItem>
           <NavItem
             className="nav-item "
             to="/products"
