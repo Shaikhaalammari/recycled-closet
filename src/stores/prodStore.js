@@ -4,11 +4,13 @@ import products from "../products";
 
 class ProdStore {
   products = [];
+  loading = true;
 
   fetchProducts = async () => {
     try {
       const response = await axios.get("http://localhost:8000/products");
       this.products = response.data;
+      this.loading = false;
     } catch (error) {
       console.error("ProdStore ->fetchProduct ->error", error);
     }
@@ -18,7 +20,7 @@ class ProdStore {
       const formData = new FormData();
       for (const key in newProduct) formData.append(key, newProduct[key]);
       const res = await axios.post(
-        "http://localhost:8000/vendors/${newProduct.vendorId}/products",
+        `http://localhost:8000/vendors/${newProduct.vendorId}/products`,
         formData
       );
       this.products.push(res.data);
@@ -57,10 +59,7 @@ class ProdStore {
     }
   };
 }
-class ProdStore {
-  products = [];
-  loading = true;
-}
+
 decorate(ProdStore, {
   products: observable,
   loading: observable,

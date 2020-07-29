@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { GrAdd } from "react-icons/gr";
 import ProdModal from "../modals/ProdModal";
+import VendorModal from "../modals/VendorModal";
 
 const AddButton = ({ vendorId, product }) => {
   const [isOpen, SetIsOpen] = useState(false);

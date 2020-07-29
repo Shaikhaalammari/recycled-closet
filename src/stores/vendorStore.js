@@ -4,11 +4,13 @@ import products from "../products";
 
 class VendorStore {
   vendors = [];
+  loading = true;
 
   fetchVendors = async () => {
     try {
       const response = await axios.get("http://localhost:8000/vendors");
       this.vendors = response.data;
+      console.log(response.data);
       this.loading = false;
     } catch (error) {
       console.error("VendorStore ->fetchProduct ->error", error);
@@ -44,18 +46,13 @@ class VendorStore {
       );
 
       const vendor = this.vendors.find(
-        (vendor) => vendor.id === updatedvendor.id
+        (vendor) => vendor.id === updatedVendor.id
       );
       for (const key in vendor) vendor[key] = updatedVendor[key];
     } catch (error) {
       console.log("VendorStore -> updateVendor -> error", error);
     }
   };
-}
-
-class VendorStore {
-  vendors = [];
-  loading = true;
 }
 
 decorate(VendorStore, {

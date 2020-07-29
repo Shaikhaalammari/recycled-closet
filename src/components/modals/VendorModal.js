@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 //stores
 import vendorStore from "../../stores/vendorStore";
+import prodStore from "../../stores/prodStore";
+//modal
+
 //styles
 import { customStyles, CreateButtonStyled } from "../../styles";
 
@@ -22,7 +25,9 @@ const VendorModal = ({ isOpen, closeModal, oldVendor }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    oldVendor ? prodStore.updateVendor(vendor) : prodStore.createVendor(vendor);
+    oldVendor
+      ? vendorStore.updateVendor(vendor)
+      : vendorStore.createVendor(vendor);
     closeModal();
   };
   // so when we even press enter it will submit
@@ -59,11 +64,11 @@ const VendorModal = ({ isOpen, closeModal, oldVendor }) => {
           />
         </div>
         <CreateButtonStyled className="btn float-right">
-          {oldVendor ? "Update Vendor" : "Create New Vroduct"}
+          {oldVendor ? "Update Vendor" : "Create New Vendor"}
         </CreateButtonStyled>
       </form>
     </Modal>
   );
 };
 
-export default ProdModal;
+export default VendorModal;

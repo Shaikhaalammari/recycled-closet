@@ -27,7 +27,6 @@ const UpdateButton = ({ vendor, product }) => {
           oldProduct={product}
         />
       )}
-      ;
     </>
   );
 };

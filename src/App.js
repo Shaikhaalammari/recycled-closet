@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react";
 //components
 import { ThemeProvider } from "styled-components";
 import NavBar from "./components/NavBar";
@@ -7,6 +8,7 @@ import GlobalStyle from "./styles";
 //routes
 import Routes from "./components/Routes";
 import prodStore from "./stores/prodStore";
+import vendorStore from "./stores/vendorStore";
 
 const theme = {
   light: {
@@ -46,7 +48,6 @@ function App() {
       ) : (
         <Routes />
       )}
-      <Routes />
     </ThemeProvider>
   );
 }

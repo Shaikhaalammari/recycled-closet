@@ -1,11 +1,12 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { Route, Switch } from "react-router";
-import ProdList from "../components/ProdList";
-import ProdDetail from "../components/ProdDetail";
-import Home from "../components/Home";
-import VendorList from "../components/VendorList";
-import VendorDetail from "../components/VendorDetail";
-import prodStore from "../stores/prodStore";
+import ProdList from "../ProdList";
+import ProdDetail from "../ProdDetail";
+import Home from "../Home";
+import VendorList from "../VendorList";
+import VendorDetail from "../VendorDetail";
+import prodStore from "../../stores/prodStore";
 
 const Routes = () => {
   return (
@@ -29,4 +30,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default observer(Routes);

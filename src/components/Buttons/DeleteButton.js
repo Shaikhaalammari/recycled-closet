@@ -2,25 +2,20 @@ import React from "react";
 // //stores
 import prodStore from "../../stores/prodStore";
 import { DeleteButtonStyled } from "./styles";
-import { useHistory } from "react-router-dom";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import vendorStore from "../../stores/vendorStore";
 
-const DeleteButton = ({ productId }) => {
-
-  const history = useHistory();
-
+const DeleteButton = ({ productId, vendorId }) => {
   const handleDelete = () => {
-   if(vendorId){
-     vendorStore.deleteVendor(vendorId);
-     history.push("./vendors");
-   } else {
-    prodStore.deleteProduct(productId);
-    history.push("/products");
+    if (vendorId) {
+      vendorStore.deleteVendor(vendorId);
+    } else {
+      prodStore.deleteProduct(productId);
+    }
   };
   return (
     <DeleteButtonStyled onClick={handleDelete}>
-      <RiDeleteBin6Line />{" "}
+      <RiDeleteBin6Line />
     </DeleteButtonStyled>
   );
 };
