@@ -7,12 +7,20 @@ import AddButton from "../Buttons/AddButton";
 import DeleteButton from "../Buttons/DeleteButton";
 import vendorStore from "../../stores/vendorStore";
 import { useParams } from "react-router-dom";
+import prodStore from "../../stores/prodStore";
 
 const VendorDetail = () => {
   const { vendorSlug } = useParams();
   const vendor = vendorStore.vendors.find(
     (_vendor) => _vendor.slug === vendorSlug
   );
+  console.log("vendor", vendor);
+
+  const products = vendor.products
+    .map((product) => prodStore.getProductById(product.id))
+    .filter((product) => product);
+  console.log("hiiii", products);
+
   return (
     <div className="row">
       <div className="container">
@@ -20,12 +28,12 @@ const VendorDetail = () => {
           <h4 color="#438a5e">{vendor.name}</h4>
           <img src={vendor.image} />
           <UpdateButton vendor={vendor} />
-          <AddButton vendorId={vendor.id} />
+          <AddButton vendor={vendor} />
           <DeleteButton vendorId={vendor.id} />
         </DetailWrapper>
       </div>
       <div className="col-12">
-        <ProdList products={vendor.products} />
+        <ProdList products={products} />
       </div>
     </div>
   );

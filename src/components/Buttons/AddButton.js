@@ -3,16 +3,16 @@ import { GrAdd } from "react-icons/gr";
 import ProdModal from "../modals/ProdModal";
 import VendorModal from "../modals/VendorModal";
 
-const AddButton = ({ vendorId, product }) => {
+const AddButton = ({ vendor, product }) => {
   const [isOpen, SetIsOpen] = useState(false);
   const closeModal = () => SetIsOpen(false);
   const openModal = () => SetIsOpen(true);
   return (
     <>
       <GrAdd className="float-right" size="2em" onClick={openModal} />
-      {vendorId ? (
+      {vendor ? (
         <ProdModal
-          vendorId={vendorId}
+          vendor={vendor}
           isOpen={isOpen}
           closeModal={closeModal}
           // createProduct={createProduct}

@@ -5,10 +5,9 @@ import prodStore from "../../stores/prodStore";
 //styles
 import { customStyles, CreateButtonStyled } from "../../styles";
 
-const ProdModal = ({ vendorId, isOpen, closeModal, oldProduct }) => {
+const ProdModal = ({ vendor, isOpen, closeModal, oldProduct }) => {
   const [product, setProduct] = useState(
     oldProduct ?? {
-      vendorId: vendorId,
       name: "",
       price: 0,
       description: "",
@@ -27,7 +26,7 @@ const ProdModal = ({ vendorId, isOpen, closeModal, oldProduct }) => {
     event.preventDefault();
     oldProduct
       ? prodStore.updateProduct(product)
-      : prodStore.createProduct(product);
+      : prodStore.createProduct(product, vendor);
     closeModal();
   };
   // so when we even press enter it will submit
