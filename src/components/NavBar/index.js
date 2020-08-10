@@ -2,6 +2,8 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { NavStyled, NavItem, ThemeButton, Logo } from "./styles";
 import logo from "../../weblogo.png";
+import SignupButton from "../Buttons/SignupButton";
+import SigninButton from "../Buttons/SigninButton";
 const NavBar = (props) => {
   return (
     <NavStyled className="navbar navbar-expand-lg">
@@ -10,18 +12,22 @@ const NavBar = (props) => {
           <img alt="logo" src={logo} />
         </Logo>
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-          <NavItem className="nav-item" to="/vendors">
+          <NavItem
+            className="nav-item"
+            to="/vendors"
+            style={{ margin: 2, float: "center" }}
+          >
             Vendors
           </NavItem>
           <NavItem
             className="nav-item "
             to="/products"
-            style={{ margin: 10, float: "center" }}
+            style={{ margin: 2, float: "center" }}
           >
-            {" "}
             Products
           </NavItem>
-
+          <SigninButton />
+          <SignupButton />
           <ThemeButton className="nav-item " onClick={props.toggleTheme}>
             {props.currentTheme === "light" ? "Dark" : "Light"} Mode
           </ThemeButton>

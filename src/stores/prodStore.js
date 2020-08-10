@@ -1,6 +1,6 @@
 import { decorate, observable } from "mobx";
 import axios from "axios";
-import products from "../products";
+import instance from "./instance";
 
 class ProdStore {
   products = [];
@@ -8,7 +8,7 @@ class ProdStore {
 
   fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/products");
+      const response = await instance.get("http://localhost:8000/products");
       this.products = response.data;
       this.loading = false;
     } catch (error) {
@@ -23,7 +23,7 @@ class ProdStore {
     try {
       const formData = new FormData();
       for (const key in newProduct) formData.append(key, newProduct[key]);
-      const res = await axios.post(
+      const res = await instance.post(
         `http://localhost:8000/vendors/${vendor.id}/products`,
         formData
       );
@@ -36,7 +36,7 @@ class ProdStore {
 
   deleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:8000/products/${productId}`);
+      await instance.delete(`http://localhost:8000/products/${productId}`);
       this.products = this.products.filter(
         (product) => product.id !== +productId
       );
@@ -50,7 +50,7 @@ class ProdStore {
       const formData = new FormData();
       for (const key in updatedProduct)
         formData.append(key, updatedProduct[key]);
-      await axios.put(
+      await instance.put(
         `http://localhost:8000/products/${updatedProduct.id}`,
         formData
       );
