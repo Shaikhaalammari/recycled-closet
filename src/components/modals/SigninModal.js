@@ -39,8 +39,8 @@ const SigninModal = ({ isOpen, closeModal }) => {
               required
               type="text"
               className="form-control"
-              name="name"
-              value={user.name}
+              name="username"
+              value={user.username}
               onChange={handleChange}
             />
           </div>
@@ -50,7 +50,7 @@ const SigninModal = ({ isOpen, closeModal }) => {
           <label>Password</label>
           <input
             required
-            type="text"
+            type="password"
             className="form-control"
             name="password"
             value={user.password}
