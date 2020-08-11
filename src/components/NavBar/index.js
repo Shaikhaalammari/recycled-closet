@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
 import { NavStyled, NavItem, ThemeButton, Logo } from "./styles";
 import logo from "../../weblogo.png";
 import SignupButton from "../Buttons/SignupButton";
 import SigninButton from "../Buttons/SigninButton";
+import authStore from "../../stores/authStore";
 const NavBar = (props) => {
   return (
     <NavStyled className="navbar navbar-expand-lg">
@@ -26,8 +26,24 @@ const NavBar = (props) => {
           >
             Products
           </NavItem>
-          <SigninButton />
-          <SignupButton />
+          {authStore.user ? (
+            <p>Hello, {authStore.user.username}</p>
+          ) : (
+            <>
+              <SigninButton />
+              <SignupButton />
+            </>
+          )}
+          {authStore.user && authStore.user.role === "admin" && (
+            <>
+              <NavItem className="nav-item" to="/vendors">
+                vendors
+              </NavItem>
+              <NavItem className="nav-item" to="/products">
+                products
+              </NavItem>
+            </>
+          )}
           <ThemeButton className="nav-item " onClick={props.toggleTheme}>
             {props.currentTheme === "light" ? "Dark" : "Light"} Mode
           </ThemeButton>

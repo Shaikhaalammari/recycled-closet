@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
+import { Redirect } from "react-router-dom";
 //stores
-import prodStore from "../../stores/prodStore";
+import authStore from "../../stores/authStore";
 // component
 import ProdItem from "../ProdItem";
 import SearchBar from "../SearchBar";
-// import { GrAdd } from "react-icons/gr";
-import AddButton from "../Buttons/AddButton";
 
 const ProdList = ({ products }) => {
   const [query, setQuery] = useState("");
@@ -15,6 +14,8 @@ const ProdList = ({ products }) => {
       product.name.toLowerCase().includes(query.toLowerCase())
     )
     .map((product) => <ProdItem product={product} key={product.id} />);
+  if (!authStore.user || authStore.user.role !== "admin")
+    return <Redirect to="/" />;
 
   return (
     <>

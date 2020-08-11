@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import GoogleFontLoader from "react-google-font-loader";
 
 export const Title = styled.h1`
   text-align: center;

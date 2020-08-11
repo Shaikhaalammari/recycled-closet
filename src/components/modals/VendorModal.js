@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 //stores
 import vendorStore from "../../stores/vendorStore";
-import prodStore from "../../stores/prodStore";
 //modal
 
 //styles

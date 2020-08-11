@@ -1,5 +1,4 @@
 import { decorate, observable } from "mobx";
-import axios from "axios";
 import instance from "./instance";
 
 class ProdStore {

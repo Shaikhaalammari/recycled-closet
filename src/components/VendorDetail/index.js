@@ -26,7 +26,7 @@ const VendorDetail = () => {
       <div className="container">
         <DetailWrapper className="col-12">
           <h4 color="#438a5e">{vendor.name}</h4>
-          <img src={vendor.image} />
+          <img src={vendor.image} alt={vendor.name} />
           <UpdateButton vendor={vendor} />
           <AddButton vendor={vendor} />
           <DeleteButton vendorId={vendor.id} />
