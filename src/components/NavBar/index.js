@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { observer } from "mobx-react";
 import {
   NavStyled,
@@ -7,11 +7,18 @@ import {
   Logo,
   UsernameStyled,
 } from "./styles";
+//modals
+import VendorModal from "../modals/VendorModal";
 import logo from "../../weblogo.png";
 import SignupButton from "../Buttons/SignupButton";
 import SigninButton from "../Buttons/SigninButton";
 import authStore from "../../stores/authStore";
 import { FiLogOut } from "react-icons/fi";
+
+const [isOpen, setIsOpen] = useState(false);
+
+const closeModal = () => setIsOpen(false);
+const openModal = () => setIsOpen(true);
 
 const NavBar = (props) => {
   return (
@@ -50,6 +57,11 @@ const NavBar = (props) => {
               </NavItem>
             </>
           ) : null}
+          {authStore.user && !authStore.user.vendorSlug && (
+            <UsernameStyled onClick={openModal}>Create Vendor</UsernameStyled>
+          )}
+          <VendorModal isOpen={isOpen} closeModal={closeModal} />
+
           <ThemeButton className="nav-item " onClick={props.toggleTheme}>
             {props.currentTheme === "light" ? "Dark" : "Light"} Mode
           </ThemeButton>

@@ -1,7 +1,12 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Title, Description, ShopImg } from "./styles";
+import authStore from "../../stores/authStore";
 
 const Home = () => {
+  if (authStore.user.vendorSlug)
+    return <Redirect to={`/vendors/${authStore.user.vendorSlug}`} />;
+
   return (
     <>
       <Title>Recycled Closet</Title>

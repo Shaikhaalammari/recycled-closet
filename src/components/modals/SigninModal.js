@@ -23,6 +23,7 @@ const SigninModal = ({ isOpen, closeModal }) => {
     closeModal();
   };
   // so when we even press enter it will submit
+
   return (
     <Modal
       isOpen={isOpen}
