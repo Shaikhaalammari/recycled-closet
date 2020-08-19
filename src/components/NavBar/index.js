@@ -15,12 +15,11 @@ import SigninButton from "../Buttons/SigninButton";
 import authStore from "../../stores/authStore";
 import { FiLogOut } from "react-icons/fi";
 
-const [isOpen, setIsOpen] = useState(false);
-
-const closeModal = () => setIsOpen(false);
-const openModal = () => setIsOpen(true);
-
 const NavBar = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeModal = () => setIsOpen(false);
+  const openModal = () => setIsOpen(true);
   return (
     <NavStyled className="navbar navbar-expand-lg">
       <div className="collapse navbar-collapse" id="navbarTogglerDemo01">

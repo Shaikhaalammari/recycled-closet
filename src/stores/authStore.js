@@ -13,7 +13,7 @@ class AuthStore {
 
   signup = async (userData) => {
     try {
-      const res = await instance.post(userData);
+      const res = await instance.post("./signup", userData);
       this.setUser(res.data.token);
     } catch (error) {
       console.log("AuthStore -> signup -> error", error);
@@ -37,10 +37,11 @@ class AuthStore {
   };
   checkForToken = () => {
     const token = localStorage.getItem("myToken");
+    console.log("hiii", token);
     if (token) {
       const currentTime = Date.now() / 1000;
       const user = decode(token); // it was jwt_decode bs i made it decode to work!
-      if (user.exp >= currentTime) {
+      if (user.expires >= currentTime) {
         this.setUser(token);
       } else {
         this.signout();
